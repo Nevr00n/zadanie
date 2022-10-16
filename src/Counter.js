@@ -5,6 +5,7 @@ import Display from "./Display";
 import ButtonsPanel from "./ButtonsPanel";
 import Clock from "./Clock";
 import { useState } from "react";
+import AddNumber from "./AddNumber";
 
 function Counter(props) {
   const [counterValue, setCounterValue] = useState(props.initValue);
@@ -14,7 +15,7 @@ function Counter(props) {
     let currentCounterValue = counterValue;
 
     if (action === "add") {
-      currentCounterValue += 1;
+      currentCounterValue += AddNumber.init; //ta linia
     } else if (action === "reinit") {
       currentCounterValue = props.initValue;
     } else {
@@ -44,6 +45,7 @@ function Counter(props) {
       Counter:
       <Display displayValue={counterValue} />
       <ButtonsPanel buttonMethod={changeValue} />
+      <AddNumber />
       {clockElement}
     </div>
   );
